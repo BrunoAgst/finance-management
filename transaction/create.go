@@ -7,11 +7,11 @@ import (
 
 type Spent struct {
 	name, date, worksheetName string
-	amount                    float64
+	value                     float64
 }
 
 func (s *Spent) Create(flag bool) {
-	var amount float64
+	var value float64
 	var valid bool
 
 	if flag {
@@ -24,17 +24,17 @@ func (s *Spent) Create(flag bool) {
 		fmt.Println("")
 
 		fmt.Println("Digite o valor da transação:")
-		fmt.Scan(&amount)
+		fmt.Scan(&value)
 		fmt.Println("")
 
-		valid = amountIsValid(amount)
+		valid = valueIsValid(value)
 
 		if !valid {
 			fmt.Println("Valor digitado é inválido")
 			os.Exit(-1)
 		}
 
-		s.amount = amount
+		s.value = value
 
 		fmt.Println("Digite a data da transação:")
 		fmt.Scan(&s.date)
@@ -51,17 +51,17 @@ func (s *Spent) Create(flag bool) {
 	fmt.Println("")
 
 	fmt.Println("Digite o valor da transação:")
-	fmt.Scan(&amount)
+	fmt.Scan(&value)
 	fmt.Println("")
 
-	valid = amountIsValid(amount)
+	valid = valueIsValid(value)
 
 	if !valid {
 		fmt.Println("Valor digitado é inválido")
 		os.Exit(-1)
 	}
 
-	s.amount = amount
+	s.value = value
 
 	fmt.Println("Digite a data da transação:")
 	fmt.Scan(&s.date)
@@ -73,8 +73,8 @@ func (s *Spent) GetName() string {
 	return s.name
 }
 
-func (s *Spent) GetAmount() float64 {
-	return s.amount
+func (s *Spent) GetValue() float64 {
+	return s.value
 }
 
 func (s *Spent) GetDate() string {
@@ -85,6 +85,6 @@ func (s *Spent) GetWorksheet() string {
 	return s.worksheetName
 }
 
-func amountIsValid(amount float64) bool {
-	return amount > 0
+func valueIsValid(value float64) bool {
+	return value > 0
 }

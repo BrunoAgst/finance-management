@@ -17,7 +17,7 @@ func CreateWorksheet(transac transaction.Spent) {
 	}
 
 	file.WriteString("nome" + "," + "valor" + "," + "data" + "\n")
-	file.WriteString(transac.GetName() + "," + strconv.FormatFloat(transac.GetAmount(), 'f', 2, 64) + "," + transac.GetDate() + "\n")
+	file.WriteString(transac.GetName() + "," + strconv.FormatFloat(transac.GetValue(), 'f', 2, 64) + "," + transac.GetDate() + "\n")
 
 	file.Close()
 
@@ -33,7 +33,7 @@ func UpdateWorksheet(transac transaction.Spent) {
 		os.Exit(-1)
 	}
 
-	file.WriteString(transac.GetName() + "," + strconv.FormatFloat(transac.GetAmount(), 'f', 2, 64) + "," + transac.GetDate() + "\n")
+	file.WriteString(transac.GetName() + "," + strconv.FormatFloat(transac.GetValue(), 'f', 2, 64) + "," + transac.GetDate() + "\n")
 
 	file.Close()
 }
